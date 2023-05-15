@@ -12,13 +12,14 @@ import forca5 from '../assets/forca5.png'
 import forca6 from '../assets/forca6.png'
 
 function App() {
+  console.log(palavras.length)
 
   const images = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
-  function randomize(){
-    return Math.random() -0.5;
- }
- 
+  function randomize() {
+    return Math.random() - 0.5;
+  }
+
   palavras.sort(randomize);
 
   const palavraArray = palavras[0].split('');
@@ -30,37 +31,45 @@ function App() {
   const [word, setWord] = useState(palavras[0]);
   const [errors, setErrors] = useState(0);
   const [clicked, setClicked] = useState([])
+  const [disabled, setDisabled] = useState([])
   const [random, setRandom] = useState(0);
-  
-      //buttons
-  
+
+  //buttons
+
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [classButton, setClassButton] = useState('disabled');
 
   return (
     <div className="app">
       <Jogo
-      underline={underline}
-      setUnderline={setUnderline}
-      classUnderline={classUnderline}
-      setClassUnderline={setClassUnderline}
-      word={word}
-      image={images[errors]}
-      setButtonDisabled={setButtonDisabled}
-      setClassButton={setClassButton}
-      random={random}
-      setRandom={setRandom}
-      setClicked={setClicked}
+        underline={underline}
+        setUnderline={setUnderline}
+        classUnderline={classUnderline}
+        setClassUnderline={setClassUnderline}
+        word={word}
+        image={images[errors]}
+        setButtonDisabled={setButtonDisabled}
+        setClassButton={setClassButton}
+        random={random}
+        setRandom={setRandom}
+        setClicked={setClicked}
+        errors={errors}
+        setErrors={setErrors}
       />
       <div className="Letras">
-        <Letras 
+        <Letras
+          underline={underline}
+          setUnderline={setUnderline}
           buttonDisabled={buttonDisabled}
+          setButtonDisabled={setButtonDisabled}
           classButton={classButton}
           errors={errors}
           setErrors={setErrors}
           clicked={clicked}
           setClicked={setClicked}
-          setClassButton={setClassButton}
+          disabled={disabled}
+          setDisabled={setDisabled}
+          word={word}
         />
       </div>
     </div>

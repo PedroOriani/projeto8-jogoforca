@@ -1,13 +1,14 @@
 import React from 'react';
   
 export default function Jogo(props){
-    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton, setClicked, random, setRandom} = props
+    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton, setClicked, random, setRandom, setErrors,} = props
 
     function chooseWord(){
         setButtonDisabled(false);
         setClicked([]);
         setClassButton('able');
         setClassUnderline('word');
+        setErrors(0)
         setRandom(random + 1);
     }
 
