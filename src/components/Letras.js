@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Letras(props){
-    const {underline, setUnderline, buttonDisabled, setButtonDisabled, classButton, errors, setErrors, clicked, setClicked, disabled, setDisabled, word} = props;
+    const {underline, setUnderline, buttonDisabled, setButtonDisabled, classButton, errors, setErrors, clicked, setClicked, word} = props;
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     let newArr =[...underline];
@@ -11,7 +11,6 @@ export default function Letras(props){
 
     function disableClicked(i){
         setClicked([...clicked, i]);
-        setDisabled([...disabled, i])
         verifyLetter(i);
     }
 
@@ -39,7 +38,7 @@ export default function Letras(props){
         <div className="alfabet">
             {alfabeto.map((letter, index) => (
                 <button
-                    disabled={`${buttonDisabled} ${disabled.includes(index) ? true : false}`}
+                    disabled={clicked.includes(index) ? true : false}
                     onClick={() => disableClicked(index)}
                     className={`letter ${classButton} ${clicked.includes(index) ? 'disabled' : 'able'}`}
                     data-test="letter"
