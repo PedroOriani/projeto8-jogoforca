@@ -6,16 +6,16 @@ export default function Letras(props){
     
     return(
         <div className="alfabet">
-        {alfabeto.map((alf, index) => (
-            <button 
-            disabled={buttonDisabled} 
-            onClick={() => alert(index)} 
-            className={`letter ${classButton}`}
-            key={index}>
-            {alfabeto[index].toUpperCase()}
-        </button>
-        ))
-        }
+            {alfabeto.map((alf, index) => (
+                <button
+                    disabled={buttonDisabled}
+                    onClick={() => alert(index)}
+                    className={classButton}
+                    key={index}>
+                    {alfabeto[index].toUpperCase()}
+                </button>
+            ))
+            }
         </div>
     );
 

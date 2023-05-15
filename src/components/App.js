@@ -25,6 +25,7 @@ function App() {
 
   //Variáveis de Estado
   const [underline, setUnderline] = useState(underlineWord);
+  const [classUnderline, setClassUnderline] = useState('none')
   const [word, setWord] = useState(palavras[0]);
   const [errors, setErrors] = useState(0);
   const [image, setImage] = useState(images[errors]);
@@ -38,9 +39,15 @@ function App() {
     <div className="app">
       <Jogo
       underline={underline}
+      setUnderline={setUnderline}
+      classUnderline={classUnderline}
+      setClassUnderline={setClassUnderline}
       word={word}
       errors={errors}
+      setErrors={setErrors}
       image={image}
+      setButtonDisabled={setButtonDisabled}
+      setClassButton={setClassButton}
       />
       <div className="Letras">
         <Letras 

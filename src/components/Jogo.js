@@ -1,11 +1,13 @@
 import { useState } from "react";
-
-function chooseWord(){
-    alert('Isabel é tonta')
-}
-    
+  
 export default function Jogo(props){
-    const {underline, word, errors, image} = props
+    const {underline,setUnderline, classUnderline, setClassUnderline, word, errors, setErrors, image, setButtonDisabled, setClassButton} = props
+
+    function chooseWord(){
+        setButtonDisabled(false);
+        setClassButton('letter');
+        setClassUnderline('word');
+    }
 
     return(
         <div className='game'>
@@ -16,7 +18,7 @@ export default function Jogo(props){
             data-teste='choose-word'>
             Escolher Palavra
             </button>
-            <p className="word none">{underline}</p>
+            <p className={classUnderline}>{underline}</p>
         </div>
     );
 }
