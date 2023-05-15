@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Letras(props){
-    const {underline, setUnderline, classButton, errors, setErrors, clicked, setClicked, word, setClassUnderline, contandoPalavras} = props;
+    const {setGameOver, underline, setUnderline, classButton, errors, setErrors, clicked, setClicked, word, setClassUnderline, contandoPalavras} = props;
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     let contErrors;
@@ -29,14 +29,13 @@ export default function Letras(props){
         if(!newArr.includes('_ ')){
             setClassUnderline('word green');
             setClicked(contandoPalavras)
+            setGameOver(1)
         }else if(contErrors === 6){
             setUnderline(word)
             setClassUnderline('word red');
             setClicked(contandoPalavras)
+            setGameOver(1)
         }
-
-        console.log(contErrors)
-        console.log('--------------------')
     }
    
     return(
@@ -48,7 +47,7 @@ export default function Letras(props){
                     className={`letter ${classButton} ${clicked.includes(index) ? 'disabled' : 'able'}`}
                     data-test="letter"
                     key={index}>
-                    {letter}
+                    {letter.toUpperCase()}
                 </button>
             ))
             }

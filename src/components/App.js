@@ -15,23 +15,19 @@ function App() {
 
   const images = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
-  function randomize() {
-    return Math.random() - 0.5;
-  }
+  const [word, setWord] = useState('');
 
-  palavras.sort(randomize);
-
-  const palavraArray = palavras[0].split('');
-  const underlineWord = palavraArray.map(() => '_ ');
+  const [palavraArray, setPalavraArray] = useState(word.split(''))
+  const [underlineWord, setUnderlineWord] = useState(palavraArray.map(() => '_ '));
 
   //Variáveis de Estado
   const [contandoPalavras, setContandoPalavras] = useState([])
   const [underline, setUnderline] = useState(underlineWord);
   const [classUnderline, setClassUnderline] = useState('none')
-  const [word, setWord] = useState(palavras[0]);
   const [errors, setErrors] = useState(0);
   const [clicked, setClicked] = useState(contandoPalavras)
   const [random, setRandom] = useState(0);
+  const [gameOver, setGameOver] = useState(0)
 
   for(let i = 0; i < palavras.length; i++){
     contandoPalavras.push(i)
@@ -45,6 +41,12 @@ function App() {
   return (
     <div className="app">
       <Jogo
+        underlineWord={underlineWord}
+        setPalavraArray={setPalavraArray}
+        setUnderlineWord={setUnderlineWord}
+        palavraArray={palavraArray}
+        setUnderline={setUnderline}
+        word={word}
         underline={underline}
         classUnderline={classUnderline}
         setClassUnderline={setClassUnderline}
@@ -55,6 +57,8 @@ function App() {
         setRandom={setRandom}
         setClicked={setClicked}
         setErrors={setErrors}
+        gameOver={gameOver}
+        setWord={setWord}
       />
       <div className="Letras">
         <Letras
@@ -68,6 +72,7 @@ function App() {
           word={word}
           setClassUnderline={setClassUnderline}
           contandoPalavras={contandoPalavras}
+          setGameOver={setGameOver}
         />
       </div>
     </div>
