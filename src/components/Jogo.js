@@ -1,7 +1,7 @@
 import { useState } from "react";
   
 export default function Jogo(props){
-    const {underline,setUnderline, classUnderline, setClassUnderline, word, errors, setErrors, image, setButtonDisabled, setClassButton} = props
+    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton} = props
 
     function chooseWord(){
         setButtonDisabled(false);

@@ -28,7 +28,6 @@ function App() {
   const [classUnderline, setClassUnderline] = useState('none')
   const [word, setWord] = useState(palavras[0]);
   const [errors, setErrors] = useState(0);
-  const [image, setImage] = useState(images[errors]);
   
       //buttons
   
@@ -43,9 +42,7 @@ function App() {
       classUnderline={classUnderline}
       setClassUnderline={setClassUnderline}
       word={word}
-      errors={errors}
-      setErrors={setErrors}
-      image={image}
+      image={images[errors]}
       setButtonDisabled={setButtonDisabled}
       setClassButton={setClassButton}
       />
@@ -53,6 +50,8 @@ function App() {
         <Letras 
           buttonDisabled={buttonDisabled}
           classButton={classButton}
+          errors={errors}
+          setErrors={setErrors}
         />
       </div>
     </div>
