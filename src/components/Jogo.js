@@ -30,7 +30,7 @@ export default function Jogo(props){
         underlineWordDireto = (palavraArrayDireto.map(() => '_ '))
         setUnderline(underlineWordDireto);
 
-        console.log(word);
+        console.log(wordDireto);
             // if(gameOver === 1){
                 
             // }
