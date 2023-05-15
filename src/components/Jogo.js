@@ -1,7 +1,7 @@
 import React from 'react';
   
 export default function Jogo(props){
-    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton, setClicked, random, setRandom, setErrors,} = props
+    const {underline, classUnderline, setClassUnderline, image, setButtonDisabled, setClassButton, setClicked, random, setRandom, setErrors,} = props
 
     function chooseWord(){
         setButtonDisabled(false);

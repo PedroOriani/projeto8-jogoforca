@@ -1,13 +1,11 @@
 import React from 'react';
 
 export default function Letras(props){
-    const {underline, setUnderline, buttonDisabled, setButtonDisabled, classButton, errors, setErrors, clicked, setClicked, word} = props;
+    const {underline, setUnderline, classButton, errors, setErrors, clicked, setClicked, word, setClassUnderline, contandoPalavras} = props;
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+    let contErrors;
     let newArr =[...underline];
-    let acertos = 0
-
-    console.log(word)
 
     function disableClicked(i){
         setClicked([...clicked, i]);
@@ -18,8 +16,9 @@ export default function Letras(props){
         for (let j = 0; j < word.length; j++){
             if(word[j] === alfabeto[i]){
                 newArr[j] = alfabeto[i]
-            }else{
-                setErrors(errors + 1);
+            }else if (!word.includes(alfabeto[i])){
+                contErrors = errors + 1
+                setErrors(contErrors)
             }
         }
         setUnderline(newArr);        
@@ -27,11 +26,17 @@ export default function Letras(props){
     }
 
     function verifyGame(){
-        if(acertos < word.length && errors === 5){
-            console.log("você perdeu");
-        }else{
-
+        if(!newArr.includes('_ ')){
+            setClassUnderline('word green');
+            setClicked(contandoPalavras)
+        }else if(contErrors === 6){
+            setUnderline(word)
+            setClassUnderline('word red');
+            setClicked(contandoPalavras)
         }
+
+        console.log(contErrors)
+        console.log('--------------------')
     }
    
     return(
