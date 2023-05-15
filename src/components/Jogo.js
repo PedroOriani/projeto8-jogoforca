@@ -18,7 +18,7 @@ export default function Jogo(props){
             data-teste='choose-word'>
             Escolher Palavra
             </button>
-            <p className={classUnderline}>{underline}</p>
+            <p className={classUnderline} data-test="word">{underline}</p>
         </div>
     );
 }

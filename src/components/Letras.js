@@ -11,6 +11,7 @@ export default function Letras(props){
                     disabled={buttonDisabled}
                     onClick={() => alert(index)}
                     className={classButton}
+                    data-test="letter"
                     key={index}>
                     {alfabeto[index].toUpperCase()}
                 </button>
