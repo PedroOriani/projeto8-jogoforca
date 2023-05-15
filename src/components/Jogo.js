@@ -1,12 +1,14 @@
-import { useState } from "react";
+import React from 'react';
   
 export default function Jogo(props){
-    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton} = props
+    const {underline,setUnderline, classUnderline, setClassUnderline, word, image, setButtonDisabled, setClassButton, setClicked, random, setRandom} = props
 
     function chooseWord(){
         setButtonDisabled(false);
-        setClassButton('letter');
+        setClicked([]);
+        setClassButton('able');
         setClassUnderline('word');
+        setRandom(random + 1);
     }
 
     return(

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from 'react';
 import Jogo from "./Jogo";
 import Letras from "./Letras";
 import palavras from '../palavras'
@@ -28,6 +29,8 @@ function App() {
   const [classUnderline, setClassUnderline] = useState('none')
   const [word, setWord] = useState(palavras[0]);
   const [errors, setErrors] = useState(0);
+  const [clicked, setClicked] = useState([])
+  const [random, setRandom] = useState(0);
   
       //buttons
   
@@ -45,6 +48,9 @@ function App() {
       image={images[errors]}
       setButtonDisabled={setButtonDisabled}
       setClassButton={setClassButton}
+      random={random}
+      setRandom={setRandom}
+      setClicked={setClicked}
       />
       <div className="Letras">
         <Letras 
@@ -52,6 +58,9 @@ function App() {
           classButton={classButton}
           errors={errors}
           setErrors={setErrors}
+          clicked={clicked}
+          setClicked={setClicked}
+          setClassButton={setClassButton}
         />
       </div>
     </div>
